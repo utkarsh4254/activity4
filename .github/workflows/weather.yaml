@@ -1,0 +1,19 @@
+name: Get Weather Info
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  fetch-weather:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Make script executable
+        run: chmod +x weather.sh
+
+      - name: Run Weather Script
+        run: ./weather.sh ${{ secrets.ACTIVITY_4 }}
