@@ -1,0 +1,16 @@
+name: Hardcoded API Key (Insecure)
+
+on:
+  workflow_dispatch:
+
+jobs:
+  call-weather-api:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Run with hardcoded API key (not secure!)
+        run: |
+          chmod +x weather.sh
+          ./weather.sh 1a15348daee447e542e4d8071a158622
